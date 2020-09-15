@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.inputform {
+	float: left;
+	width: 400px;
+	border: 1px solid pink;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #EAEAEA;
+}
+
+.inputform table tr td input, textarea, select {
+	width: 200px;
+}
+
+#gender1, #gender2 {
+	width: 10px;
+}
+
+#submit {
+	margin-left: 100px;
+	width: 100px;
+}
+
+#reset {
+	width: 100px;
+}
+
+.design {
+	background-color: #000066;
+	color: white;
+	padding-left: 80px;
+}
+
+td {
+	padding: 5px;
+}
+</style>
+</head>
+<body style="background-color: #b3b3ff">
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="Registeration.html">Register</a></li>
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="Login.html"><span
+							class="glyphicon glyphicon-log-in"></span>Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-6">
+			<div class="inputform ">
+				<h2 class="design">Registration Form</h2>
+				<form action="RegisterServlet" method="post">
+					<table>
+						<tr>
+							<td>First Name</td>
+							<td><input type="text" name="fname" class="form-control" required/></td>
+						</tr>
+						<tr>
+							<td>Last Name</td>
+							<td><input type="text" name="lname" class="form-control" required /></td>
+						</tr>
+						<tr>
+							<td>Gender:</td>
+							<td><input id="gender1" type="radio" name="gender"
+								value="male" required/>&nbsp;Male &nbsp; <input type="radio"
+								id="gender2" name="gender" value="female" required/>&nbsp;Female</td>
+						</tr>
+						<tr>
+							<td>DOB</td>
+							<td><input type="date" name="dob" class="form-control" required/></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="Email" name="email" class="form-control" required/></td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td><input type="password" name="password" id="password" class="form-control" required/></td>
+						</tr>
+						<tr>
+							<td>Confirm Password</td>
+							<td><input type="password" name="confirmpass" id="confirmpass" class="form-control" required/></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input id="submit" type="submit"
+								class="btn btn-info btn-md" value="Submit" onclick="return Validate()" /> <input id="reset"
+								type="reset" class="btn btn-info btn-md" value="Clear" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+<script>
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmpass").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
